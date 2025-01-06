@@ -62,7 +62,8 @@ class AuthController extends Controller
         }
         
 
-        $token = $user->createToken('webapp',[$user])->plainTextToken;
+           // Create token with company_id
+        $token = $user->createToken('webapp', ['company_id' => $user->company_id])->plainTextToken;
         $response = [
             'user' => $user,
             'token' => $token
@@ -84,7 +85,7 @@ class AuthController extends Controller
 
         //Check password
         if(!$user || !Hash::check($fields['password'], $user->password)){
-            return response->json([
+            return response()->json([
                 'message'=>'Please provide valid credentials'
             ],401);
         }
@@ -104,7 +105,7 @@ class AuthController extends Controller
     }
 
     function logout(Request $request){
-        auth()->user()->tokens()->delete();
+        auth()->user()->tokens()->delete(); 
         return ['message'=>'Logged out'];
     }
 
@@ -126,7 +127,7 @@ class AuthController extends Controller
         }else{
             $user->password =  bcrypt($fields['new_password']);
             $user->save();
-            auth()->user()->tokens()->delete();
+            auth()->user()->tokens()->delete(); 
         }
 
         $token = $user->createToken('webapp')->plainTextToken;

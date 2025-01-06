@@ -16,6 +16,7 @@ import { cilDelete, cilPlus } from '@coreui/icons'
 import CIcon from '@coreui/icons-react'
 import { getAPICall, post } from '../../../util/api'
 import { useNavigate } from 'react-router-dom'
+import { getUserType } from '../../../util/session'
 
 const Invoice = () => {
   const [validated, setValidated] = useState(false)
@@ -54,6 +55,8 @@ const Invoice = () => {
   })
 
   const fetchProduct = async () => {
+    const user = getUserType();
+    console.log(user);
     const response = await getAPICall('/api/products')
     setAllProducts(response)
     console.log(response);

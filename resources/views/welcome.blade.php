@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Samarth Nursary</title>
-    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+    <title>My Admin</title>
+    <link rel="shortcut icon" href="/favicons/tipic.webp" />
     @viteReactRefresh
     @vite('resources/react/index.js')
 </head>

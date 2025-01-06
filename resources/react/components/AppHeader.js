@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import {
@@ -27,6 +27,7 @@ import {
 
 import { AppBreadcrumb } from './index'
 import { AppHeaderDropdown } from './header/index'
+import { getUserType } from '../util/session'
 
 const AppHeader = () => {
   const headerRef = useRef()
@@ -34,6 +35,46 @@ const AppHeader = () => {
 
   const dispatch = useDispatch()
   const sidebarShow = useSelector((state) => state.sidebarShow)
+
+  const [companyId, setCompanyId] = useState();
+  useEffect(()=>{
+    const fetchCompanyId = async () =>{
+      try{const user = await getUserType();
+        setCompanyId(user.company_id);
+      }catch{
+        console.log("fail to fetch company id");
+      }
+    };
+    fetchCompanyId();
+  },[])
+
+  const [navItems , setNavItems] = useState([]);
+  // useEffect(() =>{
+  //     if (!companyId) return; // Wait until companyId is fetched
+  //     const navData = {
+  //           1:  [
+  //             { title: "Contact Us", link: "#/tipicContactUs" },
+  //           ],
+  //           2: [
+  //             { title: "Appoinement", link: "#/svatolAppoinement" },
+  //             { title: "Contact Us", link: "#/svatolContactUs" },
+  //           ],
+  //           3: [
+  //             { title: "Orders", link: "#/ragasOrders" },
+  //             { title: "Contact Us", link: "#/ragasContactUs" },
+  //           ],
+  //           4: [
+  //               { title: "Donations", link: "#/nileshDonation" },
+  //               { title: "Contact Us", link: "#/nileshContactUs" },
+  //             ],
+  //           5: [
+  //             { title: "Admission Form", link: "#/prabhuramAdmission" },
+  //             { title: "Enquiry", link: "#/prabhuramEnquiry" },
+  //             { title: "Contact Us", link: "#/prabhuramContactUs" },
+  //             ],
+  //         };
+  //       setNavItems(navData[companyId] || []); // Dynamically set navigation items
+  //     }, [companyId]);       // Runs whenever companyId changes
 
   useEffect(() => {
     document.addEventListener('scroll', () => {
@@ -53,37 +94,15 @@ const AppHeader = () => {
           <CIcon icon={cilMenu} size="lg" />
         </CHeaderToggler>
         <CHeaderNav className="d-none d-md-flex">
-          {/* <CNavItem>
-            <CNavLink to="/dashboard" as={NavLink}>
-              Dashboard
-            </CNavLink>
-          </CNavItem> */}
-          <CNavItem>
-            <CNavLink href="#/invoice">Invoice</CNavLink>
-          </CNavItem>
-          <CNavItem>
-            <CNavLink href="#/expense/new">New Expense</CNavLink>
-          </CNavItem>
-          <CNavItem>
-            <CNavLink href="#Reports/pnl_Report">P & L Report</CNavLink>
-          </CNavItem>
+
+      {/* Dynamic Nav Items */}
+        {navItems.map((item, index) => (
+        <CNavItem key={index}>
+          <CNavLink href={item.link}>{item.title}</CNavLink>
+        </CNavItem>
+      ))} 
         </CHeaderNav>
         <CHeaderNav className="ms-auto">
-          {/* <CNavItem>
-            <CNavLink href="#">
-              <CIcon icon={cilBell} size="lg" />
-            </CNavLink>
-          </CNavItem>
-          <CNavItem>
-            <CNavLink href="#">
-              <CIcon icon={cilList} size="lg" />
-            </CNavLink>
-          </CNavItem>
-          <CNavItem>
-            <CNavLink href="#">
-              <CIcon icon={cilEnvelopeOpen} size="lg" />
-            </CNavLink>
-          </CNavItem> */}
         </CHeaderNav>
         <CHeaderNav>
           <li className="nav-item py-1">

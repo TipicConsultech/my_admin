@@ -15,7 +15,7 @@ import { AppSidebarNav } from './AppSidebarNav'
 import logo from './../assets/brand/tipic.webp'
 
 // sidebar nav config
-import fetchNavItems from '../_nav'
+import fetchNavItems from '../SideBarItems'
 
 const AppSidebar = () => {
   const dispatch = useDispatch()
@@ -55,9 +55,9 @@ const AppSidebar = () => {
       </CSidebarHeader>
       <AppSidebarNav items={navigation} />
       <CSidebarFooter className="border-top d-none d-lg-flex">
-        <CSidebarToggler
+        {/* <CSidebarToggler
           onClick={() => dispatch({ type: 'set', sidebarUnfoldable: !unfoldable })}
-        />
+        /> */}
       </CSidebarFooter>
     </CSidebar>
     

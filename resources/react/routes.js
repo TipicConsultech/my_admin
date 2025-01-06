@@ -1,14 +1,40 @@
 import React from 'react'
 import { getUserType } from './util/session'
+import { element, exact } from 'prop-types'
 
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
+const Home = React.lazy(() => import('./views/pages/home/Home'))
+
 
 //NewRegister
 const NewUsers = React.lazy(() => import('./views/pages/register/NewUsers'))
 const AllUser = React.lazy(() => import('./views/pages/register/AllUser'))
 
 //Contact Us
-const ContactUs = React.lazy(() => import('./views/pages/contactUs/ContactUs'))
+ const ContactUs = React.lazy(() =>import('./views/pages/contactUs/ContactUs'))
+ 
+//Tipic
+const TipicContactUs = React.lazy(() => import('./views/pages/tipic/TipicContactUs'))
+
+//Svatol
+//  const ContactUs = React.lazy(() => import('./views/pages/contactUs/ContactUs'))
+const SvatolContactUs = React.lazy(() => import('./views/pages/svatol/SvatolContactUs'))
+const svatolAppoinement = React.lazy(() => import('./views/pages/svatol/SvatolAppoinement'))
+
+//Prabhuram Gurukul
+const PrabhuramContactUs = React.lazy(() => import('./views/pages/prabhuram/PrabhuramContactUs'))
+const PrabhuramAdmission = React.lazy(() => import('./views/pages/prabhuram/PrabhuramAdmission'))
+const PrabhuramEnquiry = React.lazy(() => import('./views/pages/prabhuram/prabhuramEnquiry'))
+
+//Ragas 
+const RagasContactUs= React.lazy(() => import('./views/pages/ragas/RagasContactUs'))
+const RagasOrder= React.lazy(() => import('./views/pages/ragas/RagasOrder'))
+
+//Nilesh Lanke
+const NileshContactUs= React.lazy(() => import('./views/pages/nileshLanke/NileshContactUs'))
+const NileshDonation= React.lazy(() => import('./views/pages/nileshLanke/NileshDonation'))
+
+
 
 //Enquiry
 const Enquiry = React.lazy(() => import('./views/pages/enquiry/Enquiry'))
@@ -56,12 +82,38 @@ const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 
 export default function fetchRoutes(){
   const user=getUserType();
-  let routes=[];
+  let routes=[    
+
+    { path:'/contactUs', name: 'Contact Us  ', element: ContactUs },
+
+    //Tipic 
+    { path:'/tipicContactUs', name: 'Contact Us  ', element: TipicContactUs },
+
+    //Prabhuram Gurukul
+    { path:'/prabhuramContactUs', name: 'Contact Us  ', element: PrabhuramContactUs },
+    { path:'/prabhuramAdmission', name: 'Admission ', element: PrabhuramAdmission },
+    { path:'/prabhuramEnquiry', name: 'Enquiry ', element: PrabhuramEnquiry },
+
+    //Svatol 
+    { path:'/svatolContactUs', name: 'Contact Us ', element: SvatolContactUs },
+    { path:'/svatolAppoinement', name: 'Appoinement ', element: svatolAppoinement },
+    
+    //Ragas 
+    { path:'/ragasContactUs', name: 'Contact Us ', element: RagasContactUs },
+    { path:'/ragasOrders', name: 'Orders ', element: RagasOrder },
+
+    //Nilesh Lanke
+    { path:'/nileshContactUs', name: 'Contact Us ', element: NileshContactUs },
+    { path:'/nileshDonation', name: 'Donations ', element: NileshDonation },
+
+    { path: '/home',element:Home },
+
+
+  ];
 
   if(user===0){
 
     routes = [
-      { path: '/', exact: true, name: 'Home' },
       { path: '/dashboard', name: 'Dashboard', element: Dashboard },
       { path: '/invoice', name: 'Invoice', element: Invoice },
       { path: '/invoiceCustomization', name: 'Invoice Customization', element: InvoiceCustomization },
@@ -93,9 +145,10 @@ export default function fetchRoutes(){
       { path:'usermanagement/all-users', name: 'All Users', element: AllUser },
       
 
-      { path:'/contactUs', name: 'Contact Us', element: ContactUs },
+      // { path:'/contactUs', name: 'Contact Us', element: ContactUs },
       { path:'/enquiry', name: 'Enquiry ', element: Enquiry },
-      
+    { path:'/svatolContactUs', name: 'Contact Us ', element: SvatolContactUs },
+
     ]
     
     
@@ -126,8 +179,9 @@ export default function fetchRoutes(){
     { path: 'products/updateqty', name: 'Update Bulk Quantity', element: BulkQuantity },
     { path:'/updatepassword', name: 'Update Password', element: Updatepassword },
 
-    
-    
+        
+    { path:'/svatolContactUs', name: 'Contact Us ', element: SvatolContactUs },
+
     
   ]
   

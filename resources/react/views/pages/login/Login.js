@@ -81,7 +81,7 @@ const handleLogin = async (event) => {
     }
     else{
       storeUserData(resp);
-      navigate('/invoice');
+      navigate('/home');
     }
    
   } catch (error) {

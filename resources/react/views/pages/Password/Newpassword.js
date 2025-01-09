@@ -13,7 +13,7 @@ const Newpassword = () => {
   const [isInvalid, setIsInvalid] = useState(false);
   const [validated, setValidated] = useState(false);
   const navigate= useNavigate();
-  console.log(email);
+  // console.log(email);
   useEffect(() => {
     handleUser();
   }, []);
@@ -22,7 +22,7 @@ const Newpassword = () => {
     try {
       const response = await getAPICall('/api/user');
       setEmail(response.email);
-      console.log(response);
+      // console.log(response);
     } catch (error) {
       console.error('Error fetching user:', error);
     }
@@ -60,7 +60,7 @@ const Newpassword = () => {
         new_password: newPassword,
       };
       const response = await post('/api/changePassword', newPassData);
-      console.log('API Response:', response);
+      // console.log('API Response:', response);
      if(response.status==1){
       navigate('/login')
      }

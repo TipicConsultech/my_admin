@@ -13,7 +13,8 @@ class AuthController extends Controller
         $fields = $request->validate([
             'name' => 'required|string',
             'mobile' => 'required|string|unique:users',
-            'type' => 'required',
+            'type' => 'required|integer',
+            'company_id'=> 'required|integer',
             'email' => 'nullable|string|unique:users,email',
             'password' => 'required|string|confirmed'
         ]);
@@ -23,6 +24,7 @@ class AuthController extends Controller
             'email'=> $fields['email'],
             'mobile'=> $fields['mobile'],
             'type'=> $fields['type'],
+            'company_id'=> $fields['company_id'],
             'password'=> bcrypt($fields['password'])
         ]);
 
@@ -105,7 +107,7 @@ class AuthController extends Controller
     }
 
     function logout(Request $request){
-        auth()->user()->tokens()->delete(); 
+        auth()->user()->tokens->delete(); 
         return ['message'=>'Logged out'];
     }
 
@@ -127,7 +129,7 @@ class AuthController extends Controller
         }else{
             $user->password =  bcrypt($fields['new_password']);
             $user->save();
-            auth()->user()->tokens()->delete(); 
+            auth()->user()->tokens->delete(); 
         }
 
         $token = $user->createToken('webapp')->plainTextToken;

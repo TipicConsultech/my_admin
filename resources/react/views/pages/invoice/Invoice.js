@@ -56,10 +56,10 @@ const Invoice = () => {
 
   const fetchProduct = async () => {
     const user = getUserType();
-    console.log(user);
+    // console.log(user);
     const response = await getAPICall('/api/products')
     setAllProducts(response)
-    console.log(response);
+    // console.log(response);
     const options = ['Pick Product']
     options.push(
       ...response
@@ -209,7 +209,7 @@ const Invoice = () => {
 
       if (!isInvalid && form.checkValidity() === true) {
         const res = await post('/api/order', { ...state, orderStatus: state.invoiceType })
-        console.log('Response', state)
+        // console.log('Response', state)
         if (res) {
           navigate('/invoice-details/' + res.id)
         }

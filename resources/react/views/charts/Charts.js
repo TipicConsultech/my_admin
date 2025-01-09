@@ -32,7 +32,7 @@ ChartJS.register(
 const Charts = () => {
 
  const user= getUserType;
- console.log("Charts");
+//  console.log("Charts");
 
   return (<>
    {user===0?(<CRow>

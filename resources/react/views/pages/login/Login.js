@@ -65,7 +65,7 @@ const handleLogin = async (event) => {
   event.preventDefault();
   event.stopPropagation();
   if (form.checkValidity() !== true) {
-    console.log('Invalid');
+    // console.log('Invalid');
     setValidated(true);
     return;
   }
@@ -75,7 +75,7 @@ const handleLogin = async (event) => {
   
   try {
     const resp = await login({ email, password });
-    console.log(resp);
+    // console.log(resp);
     if(resp.blocked){
       setErrorMessage(resp.message)
     }

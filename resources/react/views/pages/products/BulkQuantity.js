@@ -34,7 +34,7 @@ function BulkQuantity() {
         id: product.sizes?.[0]?.id,
         newQty: '',
       }));
-      console.log(initialStates);
+      // console.log(initialStates);
       setProductStates(initialStates);
     } catch (error) {
       console.error('Error fetching products:', error);

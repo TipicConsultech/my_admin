@@ -11,27 +11,27 @@ const NewUsers = React.lazy(() => import('./views/pages/register/NewUsers'))
 const AllUser = React.lazy(() => import('./views/pages/register/AllUser'))
 
 //Contact Us
- const ContactUs = React.lazy(() =>import('./views/pages/contactUs/ContactUs'))
+//  const ContactUs = React.lazy(() =>import('./views/pages/contactUs/ContactUs'))
  
 //Tipic
-const TipicContactUs = React.lazy(() => import('./views/pages/tipic/TipicContactUs'))
+// const TipicContactUs = React.lazy(() => import('./views/pages/tipic/TipicContactUs'))
 
 //Svatol
-//  const ContactUs = React.lazy(() => import('./views/pages/contactUs/ContactUs'))
-const SvatolContactUs = React.lazy(() => import('./views/pages/svatol/SvatolContactUs'))
+ const ContactUs = React.lazy(() => import('./views/pages/contactUs/ContactUs'))
+// const SvatolContactUs = React.lazy(() => import('./views/pages/svatol/SvatolContactUs'))
 const svatolAppoinement = React.lazy(() => import('./views/pages/svatol/SvatolAppoinement'))
 
 //Prabhuram Gurukul
-const PrabhuramContactUs = React.lazy(() => import('./views/pages/prabhuram/PrabhuramContactUs'))
+// const PrabhuramContactUs = React.lazy(() => import('./views/pages/prabhuram/PrabhuramContactUs'))
 const PrabhuramAdmission = React.lazy(() => import('./views/pages/prabhuram/PrabhuramAdmission'))
 const PrabhuramEnquiry = React.lazy(() => import('./views/pages/prabhuram/prabhuramEnquiry'))
 
 //Ragas 
-const RagasContactUs= React.lazy(() => import('./views/pages/ragas/RagasContactUs'))
+// const RagasContactUs= React.lazy(() => import('./views/pages/ragas/RagasContactUs'))
 const RagasOrder= React.lazy(() => import('./views/pages/ragas/RagasOrder'))
 
 //Nilesh Lanke
-const NileshContactUs= React.lazy(() => import('./views/pages/nileshLanke/NileshContactUs'))
+// const NileshContactUs= React.lazy(() => import('./views/pages/nileshLanke/NileshContactUs'))
 const NileshDonation= React.lazy(() => import('./views/pages/nileshLanke/NileshDonation'))
 
 
@@ -87,23 +87,23 @@ export default function fetchRoutes(){
     { path:'/contactUs', name: 'Contact Us  ', element: ContactUs },
 
     //Tipic 
-    { path:'/tipicContactUs', name: 'Contact Us  ', element: TipicContactUs },
+    // { path:'/tipicContactUs', name: 'Contact Us  ', element: TipicContactUs },
 
     //Prabhuram Gurukul
-    { path:'/prabhuramContactUs', name: 'Contact Us  ', element: PrabhuramContactUs },
+    // { path:'/prabhuramContactUs', name: 'Contact Us  ', element: PrabhuramContactUs },
     { path:'/prabhuramAdmission', name: 'Admission ', element: PrabhuramAdmission },
     { path:'/prabhuramEnquiry', name: 'Enquiry ', element: PrabhuramEnquiry },
 
     //Svatol 
-    { path:'/svatolContactUs', name: 'Contact Us ', element: SvatolContactUs },
+    // { path:'/svatolContactUs', name: 'Contact Us ', element: SvatolContactUs },
     { path:'/svatolAppoinement', name: 'Appoinement ', element: svatolAppoinement },
     
     //Ragas 
-    { path:'/ragasContactUs', name: 'Contact Us ', element: RagasContactUs },
+    // { path:'/ragasContactUs', name: 'Contact Us ', element: RagasContactUs },
     { path:'/ragasOrders', name: 'Orders ', element: RagasOrder },
 
     //Nilesh Lanke
-    { path:'/nileshContactUs', name: 'Contact Us ', element: NileshContactUs },
+    // { path:'/nileshContactUs', name: 'Contact Us ', element: NileshContactUs },
     { path:'/nileshDonation', name: 'Donations ', element: NileshDonation },
 
     { path: '/home',element:Home },
@@ -147,7 +147,7 @@ export default function fetchRoutes(){
 
       // { path:'/contactUs', name: 'Contact Us', element: ContactUs },
       { path:'/enquiry', name: 'Enquiry ', element: Enquiry },
-    { path:'/svatolContactUs', name: 'Contact Us ', element: SvatolContactUs },
+    // { path:'/svatolContactUs', name: 'Contact Us ', element: SvatolContactUs },
 
     ]
     

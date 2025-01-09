@@ -68,7 +68,7 @@ const EditProduct = () => {
 
   const loadProductData = async () => {
     const data = await getAPICall('/api/product/' + params.id)
-    console.log('Data', data)
+    // console.log('Data', data)
     setState({
       id: data.id,
       name: data.name,
@@ -91,7 +91,7 @@ const EditProduct = () => {
   }, [])
 
   const handleSubmit = async () => {
-    console.log(state)
+    // console.log(state)
     let data = { ...state }
     data.slug = data.name.replace(/[^\w]/g, '_')
     if (!state.multiSize) {
@@ -107,7 +107,7 @@ const EditProduct = () => {
       delete data.qty
     }
     try {
-      console.log('Data', data)
+      // console.log('Data', data)
       const resp = await put('/api/product/' + data.id, data)
       if (resp) {
         setSuccessMessage('Product updated successfully')

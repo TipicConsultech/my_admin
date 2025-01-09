@@ -25,6 +25,7 @@ class User extends Authenticatable
         'profilepic',
         'blocked',
         'password',
+        'company_id'
     ];
 
     /**

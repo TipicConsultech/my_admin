@@ -42,7 +42,7 @@ const AppHeader = () => {
       try{const user = await getUserType();
         setCompanyId(user.company_id);
       }catch{
-        console.log("fail to fetch company id");
+        // console.log("fail to fetch company id");
       }
     };
     fetchCompanyId();

@@ -5,6 +5,6 @@ import { getNavData } from '../../util/session';
 // then export it to _nav to display set sidebar item 
 
 const sidebarsItems = getNavData();
-console.log(sidebarsItems);
+// console.log(sidebarsItems);
 
 export default sidebarsItems;

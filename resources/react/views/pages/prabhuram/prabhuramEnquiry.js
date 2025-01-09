@@ -20,7 +20,7 @@ export default function PrabhuramEnquiry() {
     const fetchEnquiries = async () => {
       try {
         const response = await getAPICall("/api/prabhuramEnquiry");
-        console.log(response);
+        // console.log(response);
         setEnquiries(response);
         setFilteredEnquiries(response);
       } catch (error) {

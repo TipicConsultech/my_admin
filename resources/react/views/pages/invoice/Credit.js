@@ -15,7 +15,7 @@ function Credit() {
         setOrders(response);
     };
 
-    console.log(orders);
+    // console.log(orders);
     useEffect(() => {
         fetchOrders();
     }, [route]);

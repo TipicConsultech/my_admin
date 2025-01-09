@@ -20,11 +20,11 @@ export default function PrabhuramAdmission() {
     const fetchAdmissions = async () => {
       try {
         const response = await getAPICall("/api/prabhuramAdmission");
-        console.log(response);
+        // console.log(response);
         setAdmissions(response); // Update state with fetched admissions
         setFilteredAdmissions(response); // Initialize filtered data
       } catch (error) {
-        console.error("Error fetching admission data:", error);
+        // console.error("Error fetching admission data:", error);
       }
     };
     fetchAdmissions();

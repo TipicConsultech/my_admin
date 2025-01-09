@@ -7,14 +7,14 @@ import { useNavigate } from 'react-router-dom';
 export default function Home() {
   const navigate = useNavigate();
   const [firstRoute,setFirstRoute]=useState('');
-  console.log(firstRoute);
+  // console.log(firstRoute);
 
 useEffect(() => {
   const fetchSideBarItems = async () => {
     try {
       const response = await getAPICall("/api/settings");
       storeNavData(response);
-      console.log(response);
+      // console.log(response);
       
       setFirstRoute(response.data[0].to);
     } catch (error) {
@@ -28,7 +28,7 @@ useEffect(() => {
   const timer = setTimeout(() => {
     if (firstRoute) {
       navigate(firstRoute);
-      console.log("Navigating to:", firstRoute);
+      // console.log("Navigating to:", firstRoute);
     }
   }, 2000); // 2 seconds
 

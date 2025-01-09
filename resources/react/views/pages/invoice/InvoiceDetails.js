@@ -78,7 +78,7 @@ const InvoiceDetails = () => {
   const fetchProduct = async () => {
     try {
       const response = await getAPICall('/api/order/' + param.id);
-      console.log('API Response:', response);
+      // console.log('API Response:', response);
 
       let paymentModeString = response.paymentMode === 1 ? 'Cash' : 'Online (UPI/Bank Transfer)';
       let orderStatusString = '';

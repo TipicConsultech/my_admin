@@ -32,7 +32,7 @@ function InvoiceCustomization() {
   const logoInputRef = useRef(null);
   const signInputRef = useRef(null);
 
-  console.log(formData);
+  // console.log(formData);
 
   const handleChange = (event) => {
     const { name, value, files } = event.target;
@@ -71,11 +71,11 @@ function InvoiceCustomization() {
 
       if(finalData.logo != null && finalData.sign != null){
         const responce= await post('/api/invoiceCustomization', finalData);
-        console.log('Data successfully submitted:',responce)
+        // console.log('Data successfully submitted:',responce)
       }
      
        
-      console.log( responseLogo,responseSign);
+      // console.log( responseLogo,responseSign);
       setFormData({
         
         companyName: '',
